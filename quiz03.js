@@ -15,8 +15,9 @@
 
 
 function num(n) {
-    if (num % 2 === 0) {
+    if (n % 2 === 0) {
         return "짝수";
-    } else {
-        return "홀수"}
+    } else if (n % 2 === 1) {
+        return "홀수"
+    }
 }

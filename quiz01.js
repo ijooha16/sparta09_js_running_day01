@@ -1,7 +1,7 @@
 //01
 let uninitialized;
 console.log(uninitialized);
-// 결과값 < null >
+// 결과값 < undefined >
 
 
 //02
