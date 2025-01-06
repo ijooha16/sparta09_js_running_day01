@@ -24,6 +24,9 @@
 // applyCoupon(userBCart, coupon);
 // ```
 
+
+
+
 // 1.	실행 결과로 userACart.items와 userBCart.items는 각각 어떻게 달라져 있을까요?
 //둘 모두
 { name: "키보드", price: 25000 },
@@ -51,12 +54,7 @@ items: [
 ],
 };
 
-const userBCart = {
-  items: [
-    { name: "키보드", price: 30000 },
-    { name: "마우스", price: 20000 },
-  ],
-};
+const userBCart = {items:[userACart.items],}
 
 const coupon = { discount: 5000 };
 applyCoupon(userBCart, coupon);
