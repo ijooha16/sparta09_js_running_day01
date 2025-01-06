@@ -18,5 +18,8 @@
 
 
 function cal(a,b,c) {
-    return `${a} ${Number(b)} ${c}`;
+    if (b === "+") {return a+c;}
+    if (b === "-") {return a-c;}
+    if (b === "*") {return a*c;}
+    if (b === "/") {return a/c;}
 }

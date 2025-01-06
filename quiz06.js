@@ -26,11 +26,8 @@
 
 // 1.	실행 결과로 userACart.items와 userBCart.items는 각각 어떻게 달라져 있을까요?
 //둘 모두
-    {items: [
-        { name: "키보드", price: 25000 },
-        { name: "마우스", price: 15000 },
-        ],
-    };
+{ name: "키보드", price: 25000 },
+{ name: "마우스", price: 15000 },
 
 // 2.	1번의 결과에 대한 이유를 설명해보세요.
 //아이템 가격(item.price)에서 각각 할인가(coupon.discount)만큼 빼야함

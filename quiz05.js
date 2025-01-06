@@ -17,7 +17,7 @@
 
 
 function score(arr) {
-    return arr.forEach((char) => {
-                    char += 3;
-                })
+    return scores.map((char) => {
+        return char += 3;
+    })
 }
