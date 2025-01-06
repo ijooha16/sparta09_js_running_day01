@@ -40,23 +40,6 @@
 
 // 3.	원래 의도대로라면 유저 A와 유저 B 장바구니가 독립적으로 동작해야 하는데, 그렇게 하려면 코드를 어떻게 수정해야 할까요?
 //주소(변수명) 말고 키값으로 가져오기
-function applyCoupon(cart, coupon) {
-    cart.items.forEach((item) => {
-      item.price -= coupon.discount;
-    });
-  }
 
-const userACart = {
-items: [
-    { name: "키보드", price: 30000 },
-    { name: "마우스", price: 20000 },
-],
-};
 
-const userBCart = {items:[userACart.items],}
-
-const coupon = { discount: 5000 };
-applyCoupon(userBCart, coupon);
-
-console.log(userACart.items);
-console.log(userBCart.items);
+const userBCart = structuredClone(userACart);
