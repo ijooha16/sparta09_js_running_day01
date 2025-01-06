@@ -1,7 +1,7 @@
 //01
 let uninitialized;
 console.log(uninitialized);
-// 결과값 < undefined >
+// 결과값 < null >
 
 
 //02
@@ -18,4 +18,4 @@ console.log(lotto[3]);
 //04
 let mySchedule = "";
 console.log(mySchedule || false); // ""
-console.log(!!mySchedule); // 
+console.log(!!mySchedule); // undefined
