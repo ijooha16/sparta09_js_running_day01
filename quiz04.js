@@ -23,3 +23,8 @@ function cal(a,b,c) {
     if (b === "*") {return a*c;}
     if (b === "/") {return a/c;}
 }
+
+console.log(cal(3, "+", 6)) // 결과값 9
+console.log(cal(11, "-", 6)) // 결과값 5
+console.log(cal(6, "*", 3)) // 결과값 18
+console.log(cal(15, "/", 3)) // 결과값 5

@@ -20,3 +20,4 @@ console.log(lotto[3]);
 let mySchedule = "";
 console.log(mySchedule || false); //false
 console.log(!!mySchedule); // false
+//이유 모르겠음
