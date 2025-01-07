@@ -18,6 +18,5 @@ console.log(lotto[3]);
 
 //04
 let mySchedule = "";
-console.log(mySchedule || false); //false
-console.log(!!mySchedule); // false
-//이유 모르겠음
+console.log(mySchedule || false); //false 빈 문자열은 falsy
+console.log(!!mySchedule); // false falsy를 두번 뒤집어서 다시 false
