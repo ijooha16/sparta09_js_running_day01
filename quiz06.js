@@ -29,17 +29,75 @@
 
 // 1.	실행 결과로 userACart.items와 userBCart.items는 각각 어떻게 달라져 있을까요?
 //둘 모두
-{ name: "키보드", price: 25000 },
-{ name: "마우스", price: 15000 },
+// { name: "키보드", price: 25000 },
+// { name: "마우스", price: 15000 },
 
 // 2.	1번의 결과에 대한 이유를 설명해보세요.
 //아이템 가격(item.price)에서 각각 할인가(coupon.discount)만큼 빼야함
-30000 - 5000 //{ name: "키보드", price: 25000 }
-20000 - 5000 //{ name: "마우스", price: 15000 }
+// 30000 - 5000 //{ name: "키보드", price: 25000 }
+// 20000 - 5000 //{ name: "마우스", price: 15000 }
 //a카트 = b카트 이기때문에 a카트에도 적용됨
 
 // 3.	원래 의도대로라면 유저 A와 유저 B 장바구니가 독립적으로 동작해야 하는데, 그렇게 하려면 코드를 어떻게 수정해야 할까요?
 //주소(변수명) 말고 키값으로 가져오기
+function applyCoupon(cart, coupon) {
+    cart.items.forEach((item) => {
+      item.price -= coupon.discount;
+    });
+  }
+
+const userACart = {
+items: [
+    { name: "키보드", price: 30000 },
+    { name: "마우스", price: 20000 },
+],
+};
 
 
-const userBCart = structuredClone(userACart);
+let copyObj = function(target) {
+  let result = {}; // 결과를 저장할 새로운 객체 생성
+
+  for (let key in target) { // 객체의 모든 키(key)를 순회
+    // 현재 key의 값이 객체이고 null이 아닌 경우 (즉, 객체 또는 배열)
+    if (typeof target[key] === 'object' && target[key] !== null) {
+      result[key] = copyObj(target[key]); // 재귀적으로 복사
+    } else {
+      result[key] = target[key]; // 객체가 아닌 경우 값 그대로 복사
+    }
+  }
+
+  return result; // 복사된 객체 반환
+};
+
+
+
+
+let userBCart = copyObj(userACart);
+
+const coupon = { discount: 5000 };
+applyCoupon(userBCart, coupon);
+
+console.log(userACart.items);
+console.log(userBCart.items);
+
+
+// let deepCopy = function (target) {
+//   let result = {}
+//   if (typeof target === 'object' && target !== null) {
+//   for (key in target)
+//   result[key] = deepCopy(result[key])
+//   } else {
+//   result = target
+//   }
+//   return result
+//   }
+//   const userBCart = deepCopy(userACart)
+
+
+
+// const copiedObj = JSON.parse(JSON.stringify(obj));
+
+
+  
+
+// const userBCart = structuredClone(userACart);
