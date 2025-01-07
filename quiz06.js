@@ -55,24 +55,23 @@ items: [
 
 
 let copyObj = function(target) {
-  let result = {}; // 결과를 저장할 새로운 객체 생성
-
-  for (let key in target) { // 객체의 모든 키(key)를 순회
-    // 현재 key의 값이 객체이고 null이 아닌 경우 (즉, 객체 또는 배열)
-    if (typeof target[key] === 'object' && target[key] !== null) {
-      result[key] = copyObj(target[key]); // 재귀적으로 복사
-    } else {
-      result[key] = target[key]; // 객체가 아닌 경우 값 그대로 복사
+  let result = {};
+  if (Array.isArray(target)) {
+    result = target.map((item) => copyObj(item));
+  } else if (typeof target === 'object' && target !== null) {
+    for(let key in target) {
+      result[key] = copyObj(target[key]);
     }
+  } else {
+    result = target;
   }
-
-  return result; // 복사된 객체 반환
+  return result;
 };
 
 
 
 
-let userBCart = copyObj(userACart);
+const userBCart = copyObj(userACart);
 
 const coupon = { discount: 5000 };
 applyCoupon(userBCart, coupon);
